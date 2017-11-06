@@ -46,7 +46,7 @@ class Ups implements LabelInterface
         $userId = config('ups.user_id');
         $password = config('ups.password');
 
-        
+
         $result=$this->order;
         $res=new ShipFunction();
         $shipment=$res->allFunction($result);

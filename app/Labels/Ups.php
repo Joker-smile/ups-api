@@ -3,7 +3,7 @@
 namespace App\Labels;
 
 use App\Order;
-use App\Labels\ShipFunction;
+use App\Labels\API;
 class Ups implements LabelInterface
 {
 
@@ -45,11 +45,9 @@ class Ups implements LabelInterface
         $accessKey = config('ups.access_key');
         $userId = config('ups.user_id');
         $password = config('ups.password');
-
-
         $result=$this->order;
-        $res=new ShipFunction();
-        $shipment=$res->allFunction($result);
+        $res=new API();
+        $shipment=$res->create($result);
         // Get shipment info
         try {
             $api = new \Ups\Shipping($accessKey, $userId, $password);

@@ -27,8 +27,8 @@ class Ups implements LabelInterface
 
     /*
      * 打印gif 面单
-     * @parm $content gif
-     * @parm $number  TrackingNumber
+     * @param  gif $content
+     * @param  TrackingNumber $number
      * return string
      * */
     public function print()

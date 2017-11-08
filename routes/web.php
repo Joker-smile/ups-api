@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    $app = app(App\Labels\Ups::class);
-    $app->shipping();
+//    $app = app(App\Labels\Ups::class);
+//    $app->shipping();
     return view('welcome');
 });

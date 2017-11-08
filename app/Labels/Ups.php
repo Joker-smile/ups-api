@@ -3,7 +3,9 @@
 namespace App\Labels;
 
 use App\Order;
-use App\Labels\API;
+use App\Labels\UPS\API;
+use Ups\Shipping;
+use Ups\Entity\ShipmentRequestLabelSpecification;
 class Ups implements LabelInterface
 {
 
@@ -50,17 +52,16 @@ class Ups implements LabelInterface
         $shipment=$res->create($result);
         // Get shipment info
         try {
-            $api = new \Ups\Shipping($accessKey, $userId, $password);
-            $labelSpec = new \Ups\Entity\ShipmentRequestLabelSpecification(\Ups\Entity\ShipmentRequestLabelSpecification::IMG_FORMAT_CODE_GIF);
+            $api = new Shipping($accessKey, $userId, $password);
+            $labelSpec = new ShipmentRequestLabelSpecification(ShipmentRequestLabelSpecification::IMG_FORMAT_CODE_GIF);
 
             $labelSpec->setStockSizeHeight('4');
             $labelSpec->setStockSizeWidth('6');
 
-            $confirm = $api->confirm(\Ups\Shipping::REQ_VALIDATE, $shipment);
+            $confirm = $api->confirm(Shipping::REQ_VALIDATE, $shipment);
 
             if ($confirm) {
                 $accept = $api->accept($confirm->ShipmentDigest);
-
                 return $accept;
             }
         } catch (\Exception $e) {

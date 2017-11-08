@@ -13,13 +13,13 @@ class Order extends Model
      */
     protected $table = 'orders';
     protected $fillable = [
-		'name',
-		'address',
-		'city',
-		'state',
-		'zip_code',
-		'country',
-		'phone_number',
+        'name',
+        'address',
+        'city',
+        'state',
+        'zip_code',
+        'country',
+        'phone_number',
     ];
 
 }

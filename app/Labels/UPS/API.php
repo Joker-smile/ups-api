@@ -29,10 +29,12 @@ use Ups\Entity\PackagingType;
 use Ups\Entity\Dimensions;
 class API{
 
-    public function __construct()
+    private $shipment;
+    private $address;
+    public function __construct(Shipment $shipment,Address $address)
     {
-        $this->shipment=new Shipment();
-        $this->address=new Address();
+        $this->shipment=$shipment;
+        $this->address=$address;
     }
 
     public function create($result)

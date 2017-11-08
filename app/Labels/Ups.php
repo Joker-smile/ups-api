@@ -8,6 +8,12 @@ use Ups\Shipping;
 use Ups\Entity\ShipmentRequestLabelSpecification;
 class Ups implements LabelInterface
 {
+    private $api;
+
+    public function __construct(API $api)
+    {
+        $this->api=$api;
+    }
 
     public function setOrder(Order $order)
     {
@@ -48,8 +54,7 @@ class Ups implements LabelInterface
         $userId = config('ups.user_id');
         $password = config('ups.password');
         $result=$this->order;
-        $res=new API();
-        $shipment=$res->create($result);
+        $shipment=$this->api->create($result);
         // Get shipment info
         try {
             $api = new Shipping($accessKey, $userId, $password);

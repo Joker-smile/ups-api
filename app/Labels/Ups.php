@@ -48,7 +48,7 @@ class Ups implements LabelInterface
         return compact('content', 'number', 'is_file');
     }
 
-    public function shipping()
+    private function shipping()
     {
         $accessKey = config('ups.access_key');
         $userId = config('ups.user_id');

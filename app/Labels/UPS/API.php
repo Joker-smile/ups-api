@@ -99,7 +99,6 @@ class API{
     private function setRecipient($result)
     {
         // To address-收件人必须
-        $this->address = new Address();
         $this->address->setAddressLine1(substr($result->address,0,35)); //地址行一，35个字符
         $this->address->setAddressLine2(substr($result->address,35,35));//地址行二，35个字符
         $this->address->setAddressLine3(substr($result->address,70));//地址行三，35个字符
@@ -112,6 +111,7 @@ class API{
         $shipTo->setCompanyName('FORU'); //公司名
         $shipTo->setAttentionName($result->name);//联系人名
         $shipTo->setPhoneNumber($result->phone_number);//电话号码
+
         return $shipTo;
     }
 
@@ -148,6 +148,7 @@ class API{
         $soldTo->setAttentionName('NATLIN');
         $soldTo->setCompanyName($soldTo->getAttentionName());
         $soldTo->setPhoneNumber('11111111111');
+
         return $soldTo;
     }
 
@@ -157,6 +158,7 @@ class API{
         $service = new Service();
         $service->setCode(Service::S_SAVER);//服务方式S_WW_EXPEDITED，S_SAVER，S_WW_EXPRESS，S_WW_EXPRESSPLUS
         $service->setDescription($service->getName());
+
         return $service;
     }
 
@@ -182,6 +184,7 @@ class API{
         $product->setPartNumber('123456');
         $product->setOriginCountryCode('CN');
         $internationlForms->addProduct($product);
+
         return $internationlForms;
     }
 
@@ -194,6 +197,7 @@ class API{
         $emailaddress = array('1067197739@qq.com');
         $emailMessage->setEmailAddresses($emailaddress);
         $notificatin->setEmailMessage($emailMessage);
+
         return $notificatin;
     }
 
@@ -216,6 +220,7 @@ class API{
         $unit->setCode(UnitOfMeasurement::UOM_CM);
         $dimensions->setUnitOfMeasurement($unit);
         $package->setDimensions($dimensions);
+
         return $package;
     }
 

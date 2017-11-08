@@ -100,7 +100,7 @@ class API{
         $this->address = new Address();
         $this->address->setAddressLine1(substr($result->address,0,35)); //地址行一，35个字符
         $this->address->setAddressLine2(substr($result->address,35,35));//地址行二，35个字符
-        $this->address->setAddressLine3(substr($result->address,69));//地址行三，35个字符
+        $this->address->setAddressLine3(substr($result->address,70));//地址行三，35个字符
         $this->address->setPostalCode($result->zip_code);//邮编
         $this->address->setCity($result->city);//城市
         $this->address->setCountryCode($result->country);//国家

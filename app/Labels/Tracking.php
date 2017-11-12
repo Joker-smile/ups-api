@@ -8,7 +8,6 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class Tracking
 {
-
     private $uri;
     private $accessKey;
     private $userId;

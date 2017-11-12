@@ -61,7 +61,13 @@ class API{
         $rateInformation = new RateInformation();
         $rateInformation->setNegotiatedRatesIndicator(1);
 
-        $this->shipment->setShipper($shipper)->setShipTo($shipTo)->setSoldTo($soldTo)->setShipFrom($shipFrom)->setService($service)->setDescription('refer to invoice')->addPackage($package)->setReferenceNumber($referenceNumber)->setShipmentServiceOptions($shipmentserviceoptions)->setRateInformation($rateInformation);
+        $this->shipment->setShipper($shipper)
+            ->setShipTo($shipTo)->setSoldTo($soldTo)
+            ->setShipFrom($shipFrom)->setService($service)
+            ->setDescription('refer to invoice')->addPackage($package)
+            ->setReferenceNumber($referenceNumber)
+            ->setShipmentServiceOptions($shipmentserviceoptions)
+            ->setRateInformation($rateInformation);
         $this->shipment->setItemizedpaymentInformation(new ItemizedPaymentInformation('Shipper', (object)array('AccountNumber' => '4FV119'), 'Shipper', (object)array('AccountNumber' => '4FV119')));
 
         return $this->shipment;
